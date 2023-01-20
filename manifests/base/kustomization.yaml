@@ -1,0 +1,9 @@
+commonLabels:
+  app: sensorenregister
+  component: frontend
+  env: base
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml

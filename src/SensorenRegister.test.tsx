@@ -59,7 +59,7 @@ describe('SensorenRegister', () => {
 
     // https://acc.api.data.amsterdam.nl/iothings/devices/?page=1&page_size=1000
     nock('https://acc.api.data.amsterdam.nl')
-      .get('/iothings/devices/?page=1&page_size=1000')
+      .get('/devices/?page=1&page_size=1000')
       .reply(200, {
         count: mockData.length,
         results: mockData,
