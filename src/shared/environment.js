@@ -14,7 +14,9 @@ const environmentConfig = () => {
   const hostname = window && window.location && window.location.hostname;
   const port = window && window.location && window.location.port;
 
-  if (hostname === domainName) {
+  if (process.env.NODE_ENV === 'test') {
+    environment = defaultConfig
+  } else if (hostname === domainName) {
     environment = {
       API_ROOT: `https://${apiDomainName}/`,
       MAP_ROOT: 'https://map.data.amsterdam.nl/',
