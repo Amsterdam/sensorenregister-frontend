@@ -28,6 +28,8 @@ RUN npm --production=false \
 RUN chown -R node:node /app
 USER node
 
+COPY src /app/src
+
 # Test 
 FROM builder as test
 RUN npm run test
@@ -35,7 +37,7 @@ RUN npm run test
 # Build
 FROM builder as build
 COPY public /app/public
-COPY src /app/src
+# COPY src /app/src
 RUN npm run build
 
 # Deploy
