@@ -1,12 +1,12 @@
-const domainName = 'sensorenregister.amsterdam.nl';
+// const domainName = 'sensorenregister.amsterdam.nl';
 const apiDomainName = 'api.data.amsterdam.nl';
 
-const defaultConfig = {
-  API_ROOT: `https://acc.${apiDomainName}/`,
-  MAP_ROOT: 'https://map.data.amsterdam.nl/',
-  ROOT: 'http://localhost:3002/',
-  AUTH_ROOT: 'https://acc.api.data.amsterdam.nl/',
-};
+// const defaultConfig = {
+//   API_ROOT: `https://acc.${apiDomainName}/`,
+//   MAP_ROOT: 'https://map.data.amsterdam.nl/',
+//   ROOT: 'http://localhost:3002/',
+//   AUTH_ROOT: 'https://acc.api.data.amsterdam.nl/',
+// };
 
 const environmentConfig = () => {
   let environment;
@@ -15,20 +15,10 @@ const environmentConfig = () => {
   const port = window && window.location && window.location.port;
 
   if (process.env.NODE_ENV === 'test') {
-    environment = defaultConfig
-  } else if (hostname === domainName) {
     environment = {
-      API_ROOT: `https://${apiDomainName}/`,
-      MAP_ROOT: 'https://map.data.amsterdam.nl/',
-      ROOT: `https://${hostname}/`,
-      AUTH_ROOT: `https://${apiDomainName}/`,
-    };
-  } else if (hostname === `acc.${domainName}`) {
-    environment = {
-      API_ROOT: `https://acc.${apiDomainName}/`,
-      MAP_ROOT: 'https://map.data.amsterdam.nl/',
-      ROOT: `https://${hostname}/`,
-      AUTH_ROOT: `https://acc.${apiDomainName}/`,
+      API_ROOT: `https://api/`,
+      MAP_ROOT: 'https://maps/',
+      ROOT: `https://${hostname}/`
     };
   } else if ([`127.0.0.1`, `0.0.0.0`, `localhost`].includes(hostname)) {
     if (port) {
@@ -36,22 +26,23 @@ const environmentConfig = () => {
       environment = {
         API_ROOT: `http://localhost:8000/`,
         MAP_ROOT: 'https://map.data.amsterdam.nl/',
-        ROOT: `https://${hostname}/`,
-        AUTH_ROOT: `https://acc.${apiDomainName}/`,
+        ROOT: `https://${hostname}/`
       };
     } else {
-      // kubernetes ingress
+      // local kubernetes ingress
       environment = {
         API_ROOT: `http://localhost/api/`,
         MAP_ROOT: 'https://map.data.amsterdam.nl/',
-        ROOT: `https://${hostname}/`,
-        AUTH_ROOT: `https://acc.${apiDomainName}/`,
+        ROOT: `https://${hostname}/`
       };
     }
   } else {
-    environment = defaultConfig;
+    environment = {
+      API_ROOT: `https://${hostname}/api/`,
+      MAP_ROOT: 'https://map.data.amsterdam.nl/',
+      ROOT: `https://${hostname}/`
+    };
   }
-
   return environment;
 };
 
