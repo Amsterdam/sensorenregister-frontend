@@ -14,7 +14,7 @@ spec:
 
       containers:
         - name: main
-          image: localhost:15000/sensorenregister/frontend:latest
+          image: localhost:5001/sensorenregister/frontend:latest
           imagePullPolicy: Always # IfNotPresent
           securityContext:
             privileged: false

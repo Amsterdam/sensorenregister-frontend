@@ -5,7 +5,7 @@ services:
       context: .
     environment:
       - TZ=Europe/Amsterdam
-    image: ${REGISTRY:-localhost:15000}/${REPOSITORY:-sensorenregister/frontend}:${VERSION:-latest}
+    image: ${REGISTRY:-localhost:5001}/${REPOSITORY:-sensorenregister/frontend}:${VERSION:-latest}
     ports:
       - '3000:80'
 
