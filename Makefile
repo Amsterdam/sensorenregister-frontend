@@ -2,11 +2,8 @@
 
 .PHONY: manifests
 
-UID:=$(shell id --user)
-GID:=$(shell id --group)
-
 dc = docker-compose
-run = $(dc) run --rm -u ${UID}:${GID}
+run = $(dc) run --rm
 
 ENVIRONMENT ?= local
 HELM_ARGS = manifests/helm/application \

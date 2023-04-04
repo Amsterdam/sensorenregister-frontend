@@ -10,7 +10,7 @@ COPY package.json \
   .gitignore \
   .gitattributes \
   tsconfig.json \
-  /app/
+  .
 
 RUN ln -s src/.env .env
 
@@ -18,15 +18,15 @@ RUN ln -s src/.env .env
 # RUN git config --global url."https://".insteadOf git://
 # RUN git config --global url."https://github.com/".insteadOf git@github.com:
 
+RUN chown -R node:node /app
+USER node
+
 # Install NPM dependencies. Also:
 RUN npm --production=false \
   --unsafe-perm \
   --verbose \
   install \
   && npm cache clean --force
-
-RUN chown -R node:node /app
-USER node
 
 COPY src /app/src
 

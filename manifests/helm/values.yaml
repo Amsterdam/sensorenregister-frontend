@@ -52,15 +52,15 @@ deployments:
       - port: 8000
         name: http
     volumes:
-      - name: tmp
+      - name: logs
         mountPath: /var/log/nginx
         spec:
           emptyDir: {}
-      - name: tmp
+      - name: run
         mountPath: /var/run
         spec:
           emptyDir: {}
-      - name: tmp
+      - name: cache
         mountPath: /var/cache/nginx
         spec:
           emptyDir: {}
