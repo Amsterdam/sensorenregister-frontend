@@ -1,12 +1,22 @@
 : deploy
 
+.PHONY: manifests
+
 UID:=$(shell id --user)
 GID:=$(shell id --group)
 
 dc = docker-compose
 run = $(dc) run --rm -u ${UID}:${GID}
 
-ENV = local
+ENVIRONMENT ?= local
+HELM_ARGS = manifests/helm/application \
+	-f manifests/helm/values.yaml \
+	-f manifests/helm/env/${ENVIRONMENT}.yaml \
+	--set image.tag=${VERSION}
+
+REGISTRY ?= localhost:5001
+REPOSITORY ?= sensorenregister/api
+VERSION ?= latest
 
 build:
 	$(dc) build
@@ -14,11 +24,15 @@ build:
 push: build
 	$(dc) push
 
-deploy:
-	kustomize build manifests/overlays/${ENV} | kubectl apply -f -
+deploy: manifests
+	# kubectl delete deploy,service,ingress,cronjob,job,cm,secretproviderclass --all
+	# Jobs are immutable
+	# attempt to fix this with a helm hook that deletes itself
+	# kubectl delete networkpolicy.projectcalico -l app=sensorenregister
+	helm upgrade --install --atomic frontend $(HELM_ARGS)
 
-undeploy:
-	kustomize build manifests/overlays/${ENV} | kubectl delete -f -
+manifests:
+	@helm template backend $(HELM_ARGS) $(ARGS)
 
 app:
 	$(run) --service-ports app
