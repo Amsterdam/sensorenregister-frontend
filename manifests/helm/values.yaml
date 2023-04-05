@@ -40,6 +40,8 @@ deployments:
   app:
     selectorLabels:
       component: app
+    autoscale:
+      cpu: 70
     resources:
       requests:
         cpu: 1
