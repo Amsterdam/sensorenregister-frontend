@@ -19,10 +19,10 @@ image:
   tag: latest
 
 # nodepool that will be used as toleration
-nodepool: ""
+nodepool: ''
 
 # Default host
-host: ""
+host: ''
 
 labels: {}
 tolerations: []
