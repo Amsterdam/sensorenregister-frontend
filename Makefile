@@ -22,10 +22,7 @@ push: build
 	$(dc) push
 
 deploy: manifests
-	# kubectl delete deploy,service,ingress,cronjob,job,cm,secretproviderclass --all
-	# Jobs are immutable
-	# attempt to fix this with a helm hook that deletes itself
-	# kubectl delete networkpolicy.projectcalico -l app=sensorenregister
+	kubectl delete job -l 'component in (certificate)'
 	helm upgrade --install --atomic frontend $(HELM_ARGS)
 
 manifests:
