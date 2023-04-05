@@ -1,0 +1,16 @@
+# Default keyvault for getting secrets
+keyVaultName: ssr-t-zryvqlwvrfmge
+
+# Identity AppID (clientId) used to authenticate with the keyvault
+keyVaultIdentity: 00d77036-c127-4b38-a581-f170b55d65f0
+
+# We must select the nodepool to run the pods on
+nodepool: cccssrtst01
+
+# Default host for the ingress resources
+host: ssr-t.azure.amsterdam.nl
+
+# Specify the keyvault that has the certificate
+secrets:
+  certificate:
+    keyVaultName: shared-t-vfstn5vergsqw
