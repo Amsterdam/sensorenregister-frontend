@@ -2,7 +2,7 @@
 keyVaultName: ssr-t-zryvqlwvrfmge
 
 # Identity AppID (clientId) used to authenticate with the keyvault
-keyVaultIdentity: 00d77036-c127-4b38-a581-f170b55d65f0
+keyVaultIdentity: d1a45eca-b417-4da4-8603-32a8e7291591
 
 # We must select the nodepool to run the pods on
 nodepool: cccssrtst01
