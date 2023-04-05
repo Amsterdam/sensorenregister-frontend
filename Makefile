@@ -22,7 +22,7 @@ push: build
 	$(dc) push
 
 deploy: manifests
-	kubectl delete job -l 'component in (certificate)'
+	# kubectl delete job -l 'component in (certificate)'
 	helm upgrade --install --atomic frontend $(HELM_ARGS)
 
 manifests:

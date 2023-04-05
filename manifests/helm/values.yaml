@@ -25,6 +25,8 @@ secrets:
 
 jobs:
   certificate-init:
+    annotations:
+      helm.sh/hook: post-install,post-upgrade
     labels:
       component: certificate
     mountSecrets:
