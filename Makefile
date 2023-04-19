@@ -6,9 +6,9 @@ dc = docker-compose
 run = $(dc) run --rm
 
 ENVIRONMENT ?= local
-HELM_ARGS = manifests/helm/application \
-	-f manifests/helm/values.yaml \
-	-f manifests/helm/env/${ENVIRONMENT}.yaml \
+HELM_ARGS = manifests/chart \
+	-f manifests/values.yaml \
+	-f manifests/env/${ENVIRONMENT}.yaml \
 	--set image.tag=${VERSION}
 
 REGISTRY ?= localhost:5001
@@ -27,6 +27,11 @@ deploy: manifests
 
 manifests:
 	@helm template backend $(HELM_ARGS) $(ARGS)
+
+update-chart:
+	rm -rf manifests/chart
+	git clone --branch 1.3.0 --depth 1 git@github.com:Amsterdam/helm-application.git manifests/chart
+	rm -rf manifests/chart/.git
 
 app:
 	$(run) --service-ports app
