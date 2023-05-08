@@ -27,14 +27,14 @@ extends:
       namespace: ns-ccc-ssr-ont-01-sensorenregister
       kubernetesServiceConnection: SCN-K8S-ns-ccc-ssr-ont-01-sensorenregister
     test:
-      variables:
-        ENV: test
       pool: TAMM
       namespace: ns-ccc-ssr-tst-01-sensorenregister
       kubernetesServiceConnection: SCN-K8S-ns-ccc-ssr-tst-01-sensorenregister
     acc:
-      variables:
-        ENV: acc
       pool: TAMM
       namespace: ns-ccc-ssr-acc-01-sensorenregister
       kubernetesServiceConnection: SCN-K8S-ns-ccc-ssr-acc-01-sensorenregister
+    prod:
+      pool: TAMM
+      namespace: ns-ccc-ssr-prd-01-sensorenregister
+      kubernetesServiceConnection: SCN-K8S-ns-ccc-ssr-prd-01-sensorenregister

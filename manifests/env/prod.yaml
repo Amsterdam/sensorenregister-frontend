@@ -1,0 +1,21 @@
+# Default keyvault for getting secrets
+# az keyvault list --subscription CCC-SSR-prd-01 --resource-group ssr-p-rg --query '[0].{keyVaultName: name}' -o yaml
+keyVaultName: ssr-p-qcczjdu7seqow
+
+# Identity AppID (clientId) used to authenticate with the keyvault
+# cli command to get the value:
+# az ad sp list --display-name uid-cccssrprd01 --query '[0].{managedIdentityDisplayName: displayName,managedIdentityObjectId:id, managedIdentityAppId: appId}' -o yaml
+keyVaultIdentity: 2f0607d5-c2cd-4d3a-a3e8-b24a10a52d19
+
+# We must select the nodepool to run the pods on
+nodepool: cccssrprd01
+
+# Default host for the ingress resources
+host: ssr.azure.amsterdam.nl
+
+# Specify the keyvault that has the certificate
+# cli to fill value:
+# az keyvault list --subscription CCC-SSR-prd-01 --resource-group shared-p-rg --query '[0].{secrets: {certificate: {keyVaultName: name}}}' -o yaml
+secrets:
+  certificate:
+    keyVaultName: shared-p-3pkvqbyjo6py2
