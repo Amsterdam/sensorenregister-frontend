@@ -31,10 +31,12 @@ jobs:
       component: certificate
     mountSecrets:
       - certificate
-    command:
-      - sleep
-    args:
-      - '1'
+    containers:
+      - name: main
+        command:
+          - sleep
+        args:
+          - '1'
 
 deployments:
   app:
@@ -49,22 +51,28 @@ deployments:
       limits:
         cpu: 1
         memory: '512Mi'
-    ports:
-      - port: 8000
-        name: http
     volumes:
       - name: logs
-        mountPath: /var/log/nginx
         spec:
           emptyDir: {}
       - name: run
-        mountPath: /var/run
         spec:
           emptyDir: {}
       - name: cache
-        mountPath: /var/cache/nginx
         spec:
           emptyDir: {}
+    containers:
+      - name: main
+        ports:
+          - port: 8000
+            name: http
+        volumes:
+          - name: logs
+            mountPath: /var/log/nginx
+          - name: run
+            mountPath: /var/run
+          - name: cache
+            mountPath: /var/cache/nginx
 
 services:
   app:
