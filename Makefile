@@ -26,7 +26,7 @@ deploy: manifests
 	helm upgrade --install --atomic frontend $(HELM_ARGS)
 
 manifests:
-	@helm template backend $(HELM_ARGS) $(ARGS)
+	@helm template frontend $(HELM_ARGS) $(ARGS)
 
 update-chart:
 	rm -rf manifests/chart
