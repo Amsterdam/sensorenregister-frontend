@@ -29,7 +29,7 @@ jobs:
       helm.sh/hook: post-install,post-upgrade
     labels:
       component: certificate
-    mountSecrets:
+    secrets:
       - certificate
     containers:
       - name: main
