@@ -16,12 +16,17 @@ resources:
     - repository: templates
       type: git
       name: tamm/templates
-      ref: main
+      ref: refs/tags/1.1.2
 
 extends:
   template: pipelines/aks/template.yaml@templates
   parameters:
     name: ssr-frontend
+    # build:
+    #   pool:
+    #     name: ContainerBuilder
+    #     demands:
+    #     - Agent.Name -equals ContainerBuildAgent-p0000HJ
     dev:
       pool: TAMM
       namespace: ns-ccc-ssr-ont-01-sensorenregister
