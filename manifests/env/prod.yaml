@@ -2,7 +2,7 @@
 keyVaultName: ssr-p-qcczjdu7seqow
 
 # Managed identity (clientId) for workload identity with
-workloadIdentity: 7e56e46d-0419-47f2-b5ad-5ec8cfb8b472
+workloadIdentity: f2ab4f24-9327-4496-bd57-9fe967d87d5f
 
 # We must select the nodepool to run the pods on
 nodepool: cccssrprd01
