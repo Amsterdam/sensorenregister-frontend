@@ -3,7 +3,7 @@ name: my-app
 tenantId:
 keyVaultName:
 keyVaultIdentity:
-workloadIdentity:
+workloadIdentity: 
 
 securityContext:
   pod:
@@ -22,12 +22,10 @@ image:
 # nodepool that will be used as toleration
 nodepool: ""
 
-# Default host
+# Default values used by many resources
 host: ""
-
 labels: {}
 tolerations: []
-
 env: {}
 
 keyvault: {}
@@ -41,7 +39,7 @@ services: {}
 ingress: {}
 
 # Default serviceaccount
-serviceAccount: default
+serviceaccount: default
 serviceAccounts:
   default:
     enableWorkloadIdentity: true
