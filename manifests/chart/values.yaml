@@ -39,7 +39,7 @@ services: {}
 ingress: {}
 
 # Default serviceaccount
-serviceaccount: default
+serviceAccount: default
 serviceAccounts:
   default:
     enableWorkloadIdentity: true
