@@ -23,10 +23,10 @@ push: build
 
 deploy: manifests
 	# kubectl delete job -l 'component in (certificate)'
-	helm upgrade --install --atomic frontend $(HELM_ARGS)
+	helm upgrade --install --atomic ssr-frontend $(HELM_ARGS)
 
 manifests:
-	@helm template frontend $(HELM_ARGS) $(ARGS)
+	@helm template ssr-frontend $(HELM_ARGS) $(ARGS)
 
 update-chart:
 	rm -rf manifests/chart
