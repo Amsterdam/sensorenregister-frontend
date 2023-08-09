@@ -11,8 +11,8 @@ HELM_ARGS = manifests/chart \
 	-f manifests/env/${ENVIRONMENT}.yaml \
 	--set image.tag=${VERSION}
 
-REGISTRY ?= localhost:5001
-REPOSITORY ?= sensorenregister/api
+REGISTRY ?= localhost:5000
+REPOSITORY ?= opdrachten/sensorenregister-frontend
 VERSION ?= latest
 
 build:
@@ -30,7 +30,7 @@ manifests:
 
 update-chart:
 	rm -rf manifests/chart
-	git clone --branch 1.6.1 --depth 1 git@github.com:Amsterdam/helm-application.git manifests/chart
+	git clone --branch 1.7.0 --depth 1 git@github.com:Amsterdam/helm-application.git manifests/chart
 	rm -rf manifests/chart/.git
 
 app:

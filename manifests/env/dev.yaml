@@ -1,15 +1,15 @@
-keyVaultName: ssr-o-gp4jqffo3heda
+keyVaultName: sensorenregister-o-b2lva
 
 # Managed identity (clientId) for workload identity with
-workloadIdentity: ae791274-b9a6-45e6-9bad-901ea490c750
+workloadIdentity: f48f64e4-bd5f-4331-920b-0a3443343e4f
 
 # We must select the nodepool to run the pods on
-nodepool: cccssront01
+nodepool: cccopdront01
 
 # Default host for the ingress resources
-host: ssr-o.azure.amsterdam.nl
+host: sensorenregister.opdr-o.azure.amsterdam.nl
 
 # Specify the keyvault that has the certificate
 secrets:
   certificate:
-    keyVaultName: shared-o-ftytfsr6vuduo
+    keyVaultName: shared-o-yhqbd6yktpphi
