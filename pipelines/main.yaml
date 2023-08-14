@@ -21,7 +21,7 @@ resources:
 extends:
   template: pipelines/aks/template.yaml@templates
   parameters:
-    name: ssr-frontend
+    name: sensorenregister-frontend
     dev:
       pool: Opdrachten
       namespace: ns-ccc-opdr-ont-01-sensorenregister
