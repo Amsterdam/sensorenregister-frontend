@@ -43,5 +43,4 @@ bash:
 	$(run) dev bash
 
 test:
-	echo 1
-#$(run) test-unit
+	$(run) test-unit
