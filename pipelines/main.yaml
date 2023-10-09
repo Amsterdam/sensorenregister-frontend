@@ -23,7 +23,7 @@ extends:
   parameters:
     name: sensorenregister-frontend
     build:
-      analyzeImages:
+      producedImages:
       - opdrachten/sensorenregister-frontend
     dev:
       pool: Opdrachten
