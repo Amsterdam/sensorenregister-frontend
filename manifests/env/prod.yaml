@@ -1,0 +1,19 @@
+keyVaultName: sensorenregister-p-6kybh
+
+# Managed identity (clientId) for workload identity with
+workloadIdentity: e39e0a11-2978-44db-9edb-919b327a9752
+
+# We must select the nodepool to run the pods on
+nodepool: cccopdrprd01
+
+# Default host for the ingress resources
+host: sensorenregister.amsterdam.nl
+
+# Specify the keyvault that has the certificate
+secrets:
+  certificate:
+    keyVaultName: shared-p-fvzhzurrbxcfc
+
+ingress:
+  app-external:
+    enabled: true
