@@ -40,6 +40,7 @@ A generic helm chart for deploying an application
 | `host`           | Default hostname to bind on ingresses                                                                                           | `""`      |
 | `serviceAccount` | Default serviceaccount to bind on the pods                                                                                      | `default` |
 | `tolerations`    | (Optional) Default workload [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) object | `nil`     |
+| `tempDirs`       | (Optional) Default list of temporary directories to mount on the pods (e.g. /tmp)                                               | `[]`      |
 
 ### SecurityContext parameters
 
@@ -87,6 +88,13 @@ A generic helm chart for deploying an application
 | `persistentVolumeClaims.<key>.volumeName`       | Name of the [Volume](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/volume/). Use this property instead of `storageClassName` to use an existing `Volume` | `nil`           |
 | `persistentVolumeClaims.<key>.accessModes`      | Contains the desired access modes the volume should have                                                                                                                                    | `ReadWriteOnce` |
 | `persistentVolumeClaims.<key>.resources`        | Represents the minimum resources the volume should have. [More info](https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources)                                              | `nil`           |
+
+### ConfigMaps parameters
+
+| Name                    | Description                                                                                                                                        | Value |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| `configMaps`            | `map` of the [ConfigMaps](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/config-map-v1/) that should be deployed |       |
+| `configMaps.<key>.data` | `map` of data to deploy in the configmap                                                                                                           | `[]`  |
 
 ### Secrets parameters
 
@@ -137,6 +145,7 @@ A generic helm chart for deploying an application
 | `jobs.<key>.securityContext`         | Optionally override `root.securityContext.pod`                                                                                       | `nil`  |
 | `jobs.<key>.containers`              | [Container[]](#container-definition)                                                                                                 | `[]`   |
 | `jobs.<key>.volumes`                 | [Volume[]](#volume-definition)                                                                                                       | `[]`   |
+| `jobs.<key>.tempDirs`                | List of temporary directories to mount on the pods (extends root.tempDirs)                                                           | `[]`   |
 
 ### CronJob parameters
 
@@ -159,6 +168,7 @@ A generic helm chart for deploying an application
 | `cronJobs.<key>.securityContext`            | Optionally override `root.securityContext.pod`                                                                                                | `nil`    |
 | `cronJobs.<key>.containers`                 | [Container[]](#container-definition)                                                                                                          | `[]`     |
 | `cronJobs.<key>.volumes`                    | [Volume[]](#volume-definition)                                                                                                                | `[]`     |
+| `cronJobs.<key>.tempDirs`                   | List of temporary directories to mount on the pods (extends root.tempDirs)                                                                    | `[]`     |
 
 ### Deployment parameters
 
@@ -179,3 +189,4 @@ A generic helm chart for deploying an application
 | `deployments.<key>.securityContext`        | Optionally override `root.securityContext.pod`                                                                                                     | `nil`  |
 | `deployments.<key>.containers`             | [Container[]](#container-definition)                                                                                                               | `[]`   |
 | `deployments.<key>.volumes`                | [Volume[]](#volume-definition)                                                                                                                     | `[]`   |
+| `deployments.<key>.tempDirs`               | List of temporary directories to mount on the pods (extends root.tempDirs)                                                                         | `[]`   |

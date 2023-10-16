@@ -40,6 +40,10 @@ jobs:
 
 deployments:
   app:
+    tempDirs:
+      - /var/log/nginx
+      - /var/run
+      - /var/cache/nginx
     selectorLabels:
       component: app
     autoscale:
@@ -51,28 +55,11 @@ deployments:
       limits:
         cpu: 1
         memory: '512Mi'
-    volumes:
-      - name: logs
-        spec:
-          emptyDir: {}
-      - name: run
-        spec:
-          emptyDir: {}
-      - name: cache
-        spec:
-          emptyDir: {}
     containers:
       - name: main
         ports:
           - port: 8000
             name: http
-        volumes:
-          - name: logs
-            mountPath: /var/log/nginx
-          - name: run
-            mountPath: /var/run
-          - name: cache
-            mountPath: /var/cache/nginx
 
 services:
   app:

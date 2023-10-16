@@ -32,6 +32,7 @@ keyvault: {}
 
 # Resources
 secrets: {}
+configMaps: {}
 jobs: {}
 cronJobs: {}
 deployments: {}
@@ -47,3 +48,5 @@ serviceAccounts:
 # Network policies
 # https://docs.tigera.io/calico/latest/reference/resources/networkpolicy
 network: {}
+
+tempDirs: []
