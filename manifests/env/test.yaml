@@ -14,3 +14,7 @@ host: sensorenregister.opdr-t.azure.amsterdam.nl
 secrets:
   certificate:
     keyVaultName: shared-t-ddxsibl3lrdai
+
+ingress:
+  app-external:
+    enabled: false

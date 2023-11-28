@@ -15,7 +15,5 @@ secrets:
     keyVaultName: shared-a-uibe5ahqv3cwo
 
 ingress:
-  app-internal:
-    host: sensorenregister.opdr-a.azure.amsterdam.nl
   app-external:
     enabled: true
