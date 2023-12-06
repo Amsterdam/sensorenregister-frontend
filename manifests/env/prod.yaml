@@ -18,12 +18,12 @@ ingress:
   app-external:
     enabled: true
 
-  app-internal-motiv:
-    host: sensorenregister.opdr.azure.amsterdam.nl
-    className: nginx-internal
-    paths:
-      - path: /
-        pathType: Prefix
-        service: app
-        port: 8000
-    tls: certificate
+#  app-internal-motiv:
+#    host: sensorenregister.opdr.azure.amsterdam.nl
+#    className: nginx-internal
+#    paths:
+#      - path: /
+#        pathType: Prefix
+#        service: app
+#        port: 8000
+#    tls: certificate
