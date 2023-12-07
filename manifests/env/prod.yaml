@@ -19,7 +19,7 @@ ingress:
     enabled: true
 
   app-internal:
-    host: sensorenregister.opdr.azure.amsterdam.nl
+    host: sensorenregister.amsterdam.nl
 #    className: nginx-internal
 #    paths:
 #      - path: /
