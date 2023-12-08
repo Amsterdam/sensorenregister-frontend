@@ -17,3 +17,6 @@ secrets:
 ingress:
   app-external:
     enabled: false
+
+  app-internal-motiv:
+    enabled: false
