@@ -49,7 +49,11 @@ extends:
       pool: Opdrachten
       namespace: ns-ccc-opdr-acc-01-sensorenregister
       kubernetesServiceConnection: SCN-K8S-ns-ccc-opdr-acc-01-sensorenregister
+      preSteps:
+        - script: helm uninstall ssr-frontend -n ns-ccc-opdr-acc-01-sensorenregister || true
     prod:
       pool: Opdrachten
       namespace: ns-ccc-opdr-prd-01-sensorenregister
       kubernetesServiceConnection: SCN-K8S-ns-ccc-opdr-prd-01-sensorenregister
+      preSteps:
+        - script: helm uninstall ssr-frontend -n ns-ccc-opdr-prd-01-sensorenregister || true
