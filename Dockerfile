@@ -10,7 +10,7 @@ COPY package.json \
   .gitignore \
   .gitattributes \
   tsconfig.json \
-  .
+  ./
 
 RUN ln -s src/.env .env
 
