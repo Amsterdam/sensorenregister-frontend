@@ -37,6 +37,7 @@ services:
 
   upgrade:
     build:
+      context: .
       target: upgrade
     environment:
       - TZ=Europe/Amsterdam
