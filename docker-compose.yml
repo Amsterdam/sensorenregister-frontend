@@ -12,7 +12,7 @@ services:
   dev:
     build:
       context: .
-      target: builder
+      target: base
     volumes:
       - ./src:/app/src
       - ./public:/app/public
@@ -34,3 +34,13 @@ services:
       - NODE_ENV=development
       - TZ=Europe/Amsterdam
     command: npm run test
+
+  upgrade:
+    build:
+      target: upgrade
+    environment:
+      - TZ=Europe/Amsterdam
+    volumes:
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+    command: ncu -u --doctor --target minor
