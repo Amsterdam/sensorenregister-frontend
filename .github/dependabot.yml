@@ -1,10 +1,23 @@
-version: 2
-updates:
-  - package-ecosystem: npm
-    directory: '/'
-    target-branch: 'develop'
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10
-    allow:
-      - dependency-type: 'direct'
+name: Opdrachten Team Dependabot
+
+on:
+  schedule: # Run the script on the 1st and 15th of every month
+    - cron: '0 6 1,15 * *'
+  workflow_dispatch: # Creates button on Github to trigger the workflow manually
+
+
+jobs:
+  dependabot:
+    name: Templates
+    uses: amsterdam/github-workflows/.github/workflows/dependabot.yml@v1
+    secrets: inherit  # Inherit secrets from the repository. You need to define "SLACK_TOKEN" in settings -> secrets -> actions!
+    with:
+      check_diff: false  # Create a list of major upgrades. Needs the Makefile target "diff"
+      slack_channel: 'opdrachten-dependabot'  # Slack channel to post release steps to
+      timetell_code: 230483  # Timetell project id
+      acceptance_pipeline: "https://dev.azure.com/CloudCompetenceCenter/Opdrachten/_build?definitionId=2346"
+      production_pipeline: "https://dev.azure.com/CloudCompetenceCenter/Opdrachten/_build?definitionId=2346"
+      acceptance_urls: "https://acc.sensorenregister.amsterdam.nl/admin/,
+      https://acc.sensorenregister.amsterdam.nl/"
+      production_urls: "https://sensorenregister.amsterdam.nl/admin/,
+      https://sensorenregister.amsterdam.nl/"
