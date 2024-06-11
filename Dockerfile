@@ -1,4 +1,4 @@
-FROM node:19-bullseye AS builder
+FROM node:19-bullseye AS base
 
 ARG BUILD_ENV=prod
 ARG BUILD_NUMBER=0
@@ -30,12 +30,18 @@ RUN npm --production=false \
 
 COPY src /app/src
 
-# Test 
-FROM builder as test
+# Upgrade dependencies
+FROM base AS upgrade
+USER root
+RUN npm install -g npm-check-updates
+CMD ["ncu", "-u", "--doctor", "--target minor"]
+
+# Test
+FROM base as test
 RUN npm run test
 
 # Build
-FROM builder as build
+FROM base as build
 COPY public /app/public
 # COPY src /app/src
 RUN npm run build
