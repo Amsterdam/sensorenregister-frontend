@@ -1,6 +1,6 @@
-.PHONY: manifests
+.PHONY: manifests build push app dev bash test requirements
 
-dc = docker-compose
+dc = docker compose
 run = $(dc) run --rm
 
 build:
