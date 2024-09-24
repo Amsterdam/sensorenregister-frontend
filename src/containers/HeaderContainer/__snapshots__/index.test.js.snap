@@ -54,6 +54,27 @@ exports[`<HeaderContainer /> should render correctly when authenticated 1`] = `
             >
               <a
                 class="sc-eDvSVe dgQMZp sc-lknQiW sc-jmpzUR fTGCFI cDlSId"
+                href="https://api/sensor_entries/"
+                rel="noopener noreferrer"
+                target="_blank"
+                variant="blank"
+              >
+                <span
+                  class="sc-fmZqYP"
+                >
+                  <span
+                    class="sc-eDZJfc"
+                  >
+                    Sensor Toevoegen
+                  </span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="sc-fWQKxP gSwnrI"
+            >
+              <a
+                class="sc-eDvSVe dgQMZp sc-lknQiW sc-jmpzUR fTGCFI cDlSId"
                 href="/"
                 variant="blank"
               >

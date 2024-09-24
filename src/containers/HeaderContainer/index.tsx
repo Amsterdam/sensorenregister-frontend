@@ -31,6 +31,12 @@ export const HeaderContainer = () => (
       fullWidth
       navigation={
         <Menu>
+        <MenuItem>
+          {/* @ts-ignore */}
+          <MenuButton as={Link} to={APP_ROUTES.ADDSENSOR} target="_blank" rel="noopener noreferrer">
+            Sensor Toevoegen
+          </MenuButton>
+        </MenuItem>
           <MenuItem>
             {/* @ts-ignore */}
             <MenuButton forwardedAs={Link} to={APP_ROUTES.HOME}>
