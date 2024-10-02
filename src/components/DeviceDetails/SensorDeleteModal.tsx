@@ -17,7 +17,7 @@ const SensorDeleteModal: React.FC<SensorDeleteModalProps> = ({ open, onClose, se
 
   const handleDeleteConfirm = async () => {
     try {
-      // Uncomment and implement the delete request
+      // TODO: Send delete request to the backend with sensorID
       // const response = await fetch(`${CONFIGURATION.API_ROOT}deleteDevice/`, {
       //   method: 'DELETE',
       //   headers: {
