@@ -1,19 +1,29 @@
-import { Close } from '@amsterdam/asc-assets';
+import CONFIGURATION from '../../shared/environment';
+import React, { useState } from 'react';
+import { Close, TrashBin } from '@amsterdam/asc-assets';
 import { themeSpacing, List, ListItem, Link, themeColor, Button } from '@amsterdam/asc-ui';
 import styled from 'styled-components';
 import { useRegions } from '../../services/regions';
 import RegionMap from './RegionMap';
 import './style.scss';
+import SensorDeleteModal from './SensorDeleteModal';
+import { formatEmail } from '../../utils/formatEmail';
 
 export interface Props {
   feature: any | null;
   onClose: () => void;
 }
 
+const ButtonStyled = styled(Button)`
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+`;
+
 const InfoContainer = styled('div')`
   padding-top: ${themeSpacing(1)};
   padding-bottom: ${themeSpacing(1)};
-
   border-bottom: 2px solid ${themeColor('tint', 'level2')};
 `;
 
@@ -29,11 +39,12 @@ const CloseButton = styled(Button)`
 `;
 
 const DeviceDetailsWrapper = styled.section`
-  postision: relative;
+  position: relative;
 `;
 
 const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
   const regions = useRegions();
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   if (!feature) {
     return null;
@@ -125,6 +136,26 @@ const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
           <ListItem>{activeUntil}</ListItem>
         </List>
       </InfoContainer>
+
+      <ButtonStyled
+        iconLeft={<TrashBin />}
+        variant="secondary"
+        type="button"
+        onClick={() => {
+          setIsDeleteModalOpen(true);
+        }}
+      >
+        Verwijder Sensor
+      </ButtonStyled>
+
+      <SensorDeleteModal
+        open={isDeleteModalOpen}
+        onClose={() => {
+          setIsDeleteModalOpen(false);
+        }}
+        sensorId={feature.properties.id} // Pass sensor ID to the modal
+        email={formatEmail(contact?.email)}
+      />
     </DeviceDetailsWrapper>
   );
 };
