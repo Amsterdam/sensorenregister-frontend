@@ -14,8 +14,10 @@ interface SensorDeleteModalProps {
 
 const SensorDeleteModal: React.FC<SensorDeleteModalProps> = ({ open, onClose, sensorId, email }) => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDeleteConfirm = async () => {
+    setIsDeleting(true);
     try {
       // TODO: Send delete request to the backend with sensorID
       // const response = await fetch(`${CONFIGURATION.API_ROOT}deleteDevice/`, {
@@ -38,6 +40,7 @@ const SensorDeleteModal: React.FC<SensorDeleteModalProps> = ({ open, onClose, se
       setTimeout(() => {
         setSuccessMessage(null); // Clear message after a delay
         onClose();
+        setIsDeleting(false);
       }, 3000);
     }
   };
@@ -68,7 +71,7 @@ const SensorDeleteModal: React.FC<SensorDeleteModalProps> = ({ open, onClose, se
       {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
 
       <ModalFooter>
-        <Button variant="secondary" onClick={handleDeleteConfirm}>
+        <Button variant="secondary" onClick={handleDeleteConfirm} disabled={isDeleting}>
           Bevestig
         </Button>
         <Button color="bright" onClick={onClose}>
