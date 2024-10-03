@@ -85,8 +85,6 @@ const SuccessMessage = styled(Paragraph)`
   padding: 0 1.5em;
 `;
 
-export default SensorDeleteModal;
-
 const StyledModal = styled(DefaultModal)`
   min-width: 400px; // Adjust as needed
 `;
@@ -153,3 +151,5 @@ const HorizontalRule = styled.hr`
 const ParagraphStyled = styled(Paragraph)`
   margin-block: 0.05em;
 `;
+
+export default SensorDeleteModal;
