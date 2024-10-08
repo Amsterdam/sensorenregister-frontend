@@ -16,9 +16,11 @@ export interface Props {
 
 const ButtonStyled = styled(Button)`
   justify-content: center;
-  width: 50%;
+  max-width: 80%;
   margin: 0 auto;
   margin-bottom: 20px;
+  padding: 12px 16px;
+  box-sizing: border-box;
 `;
 
 const InfoContainer = styled('div')`
@@ -39,7 +41,7 @@ const CloseButton = styled(Button)`
 `;
 
 const DeviceDetailsWrapper = styled.section`
-  position: relative;
+  postision: relative;
 `;
 
 const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
@@ -67,6 +69,7 @@ const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
     <DeviceDetailsWrapper id="device-details">
       <CloseButton
         type="button"
+        color="bright"
         variant="blank"
         title="Legenda"
         data-testid="legenda"
@@ -137,24 +140,25 @@ const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
         </List>
       </InfoContainer>
 
-      <ButtonStyled
-        iconLeft={<TrashBin />}
-        variant="secondary"
-        type="button"
-        onClick={() => {
-          setIsDeleteModalOpen(true);
-        }}
-      >
-        Verwijder Sensor
-      </ButtonStyled>
+      <InfoContainer>
+        <ButtonStyled
+          iconLeft={<TrashBin />}
+          variant="secondary"
+          type="button"
+          onClick={() => {
+            setIsDeleteModalOpen(true);
+          }}
+        >
+          Verzoek Verwijder Sensor
+        </ButtonStyled>
+      </InfoContainer>
 
       <SensorDeleteModal
         open={isDeleteModalOpen}
         onClose={() => {
           setIsDeleteModalOpen(false);
         }}
-        sensorId={feature.properties.id} // Pass sensor ID to the modal
-        email={formatEmail(contact?.email)}
+        sensorId={feature.properties.id}
       />
     </DeviceDetailsWrapper>
   );

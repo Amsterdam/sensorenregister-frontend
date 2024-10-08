@@ -9,10 +9,9 @@ interface SensorDeleteModalProps {
   open: boolean;
   onClose: () => void;
   sensorId: string;
-  email: string;
 }
 
-const SensorDeleteModal: React.FC<SensorDeleteModalProps> = ({ open, onClose, sensorId, email }) => {
+const SensorDeleteModal: React.FC<SensorDeleteModalProps> = ({ open, onClose, sensorId}) => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -63,8 +62,8 @@ const SensorDeleteModal: React.FC<SensorDeleteModalProps> = ({ open, onClose, se
 
       <ModalContent>
         <ParagraphStyled>
-          Weet je zeker dat je deze sensor wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
-          We sturen een email naar de eigenaar om de sensor te verwijderen op {email}.
+          Weet je zeker dat je deze sensor wilt verwijderen?
+          We sturen een email met een verzoek om de sensor te verwijderen naar de verantwoordelijke voor de sensor.
         </ParagraphStyled>
       </ModalContent>
 
