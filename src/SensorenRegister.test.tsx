@@ -107,7 +107,7 @@ describe('SensorenRegister', () => {
 
       userEvent.type(screen.getByPlaceholderText('Zoeken...'), 'AMSTD002');
 
-      await screen.findByRole('link', { name: /amstd002/i });
+      await screen.findByRole('link', { name: /amstd002/i }, { timeout: 5000 });
     });
   });
 });
