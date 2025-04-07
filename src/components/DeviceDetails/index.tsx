@@ -89,7 +89,7 @@ const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
         <h3>Sensorgegevens</h3>
         <List variant="bullet">
           <ListItem>{sensorType}</ListItem>
-          <ListItem>{regions ? 'Mobiele sensor' : 'Vaste sensor'}</ListItem>
+          <ListItem>{sensorRegions ? 'Mobiele sensor' : 'Vaste sensor'}</ListItem>
           {reference && <ListItem>Referentie: {reference}</ListItem>}
           {sensorRegions && regions && (
             <ListItem>Gebied: {sensorRegions.map((r: string) => regions[r.toLowerCase()]?.naam).join(', ')}</ListItem>
