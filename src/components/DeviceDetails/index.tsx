@@ -1,19 +1,31 @@
-import { Close } from '@amsterdam/asc-assets';
+import CONFIGURATION from '../../shared/environment';
+import React, { useState } from 'react';
+import { Close, TrashBin } from '@amsterdam/asc-assets';
 import { themeSpacing, List, ListItem, Link, themeColor, Button } from '@amsterdam/asc-ui';
 import styled from 'styled-components';
 import { useRegions } from '../../services/regions';
 import RegionMap from './RegionMap';
 import './style.scss';
+import SensorDeleteModal from './SensorDeleteModal';
+import { formatEmail } from '../../utils/formatEmail';
 
 export interface Props {
   feature: any | null;
   onClose: () => void;
 }
 
+const ButtonStyled = styled(Button)`
+  justify-content: center;
+  max-width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+`;
+
 const InfoContainer = styled('div')`
   padding-top: ${themeSpacing(1)};
   padding-bottom: ${themeSpacing(1)};
-
   border-bottom: 2px solid ${themeColor('tint', 'level2')};
 `;
 
@@ -34,6 +46,7 @@ const DeviceDetailsWrapper = styled.section`
 
 const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
   const regions = useRegions();
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   if (!feature) {
     return null;
@@ -56,6 +69,7 @@ const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
     <DeviceDetailsWrapper id="device-details">
       <CloseButton
         type="button"
+        color="bright"
         variant="blank"
         title="Legenda"
         data-testid="legenda"
@@ -125,6 +139,27 @@ const DeviceDetails: React.FC<Props> = ({ feature, onClose }) => {
           <ListItem>{activeUntil}</ListItem>
         </List>
       </InfoContainer>
+
+      <InfoContainer>
+        <ButtonStyled
+          iconLeft={<TrashBin />}
+          variant="secondary"
+          type="button"
+          onClick={() => {
+            setIsDeleteModalOpen(true);
+          }}
+        >
+          Verzoek Verwijder Sensor
+        </ButtonStyled>
+      </InfoContainer>
+
+      <SensorDeleteModal
+        open={isDeleteModalOpen}
+        onClose={() => {
+          setIsDeleteModalOpen(false);
+        }}
+        sensorId={feature.properties.id}
+      />
     </DeviceDetailsWrapper>
   );
 };
