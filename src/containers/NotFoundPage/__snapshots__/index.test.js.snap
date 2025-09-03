@@ -3,25 +3,26 @@
 exports[`<NotFound /> should render the Page Not Found text 1`] = `
 <DocumentFragment>
   <div
-    class="sc-iuuDEZ iKSBUJ"
+    class="sc-kgOKUu cduhTZ"
   >
     <div
-      class="sc-xWrgk kyARHg"
+      class="sc-dBmzty cXEONs"
       id="header"
     >
       <header
-        class="sc-ikHGee sc-uhnfH kDDFQp ejRTpT"
+        class="sc-kYxDKI sc-bpUBKd eJgPoD cGgIoW"
       >
         <h1
-          class="sc-hAQmFe eQrhOM"
+          class="sc-kbousE ldkzVx"
         >
           <a
-            class="sc-csuSiG kFogyG"
+            class="sc-jlZhew hhsyaO"
             href="/"
           >
             <svg
-              class="sc-ftTHYK dOqGxG"
+              class="sc-imWYAI hkVgtO"
               focusable="false"
+              role="img"
               viewBox="0 0 754.78 340.19"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -31,37 +32,37 @@ exports[`<NotFound /> should render the Page Not Found text 1`] = `
               />
             </svg>
             <span
-              class="sc-ipEyDJ dViLQK"
+              class="sc-dAlyuH dEvjcu"
             >
               Sensorenregister
             </span>
           </a>
           <a
-            class="sc-bqWxrE tnkCo sc-cabOPr hEmZDc sc-eGJbfJ kQYWkz"
+            class="sc-jEACwC gTqerM sc-jxOSlx lBYNR sc-gfoqjT iUsCIO"
             href="/"
           >
             Sensorenregister
           </a>
         </h1>
         <nav
-          class="sc-kZLDfD hBOFRX"
+          class="sc-sLsrZ hThACK"
         >
           <ul
-            class="sc-dcntqk fFgrUc"
+            class="sc-bfhvDw fQLsTo"
           >
             <li
-              class="sc-fWQKxP gSwnrI"
+              class="sc-ejfMa-d fymHSF"
             >
               <a
-                class="sc-eDvSVe dhrqvQ sc-lknQiW sc-jmpzUR sHNFC gBkRWB"
+                class="sc-dcJsrY gcSowv sc-hHOBiw sc-kWtpeL fSwEJJ jaGJBC"
                 href="/"
                 variant="blank"
               >
                 <span
-                  class="sc-fmZqYP"
+                  class="sc-dlWCHZ"
                 >
                   <span
-                    class="sc-eDZJfc"
+                    class="sc-eZYNyq"
                   >
                     Kaart
                   </span>
@@ -69,18 +70,18 @@ exports[`<NotFound /> should render the Page Not Found text 1`] = `
               </a>
             </li>
             <li
-              class="sc-fWQKxP gSwnrI"
+              class="sc-ejfMa-d fymHSF"
             >
               <a
-                class="sc-eDvSVe dhrqvQ sc-lknQiW sc-jmpzUR sHNFC gBkRWB"
+                class="sc-dcJsrY gcSowv sc-hHOBiw sc-kWtpeL fSwEJJ jaGJBC"
                 href="/categories"
                 variant="blank"
               >
                 <span
-                  class="sc-fmZqYP"
+                  class="sc-dlWCHZ"
                 >
                   <span
-                    class="sc-eDZJfc"
+                    class="sc-eZYNyq"
                   >
                     Type sensoren
                   </span>
@@ -88,18 +89,18 @@ exports[`<NotFound /> should render the Page Not Found text 1`] = `
               </a>
             </li>
             <li
-              class="sc-fWQKxP gSwnrI"
+              class="sc-ejfMa-d fymHSF"
             >
               <a
-                class="sc-eDvSVe dhrqvQ sc-lknQiW sc-jmpzUR sHNFC gBkRWB"
+                class="sc-dcJsrY gcSowv sc-hHOBiw sc-kWtpeL fSwEJJ jaGJBC"
                 href="/about/faq"
                 variant="blank"
               >
                 <span
-                  class="sc-fmZqYP"
+                  class="sc-dlWCHZ"
                 >
                   <span
-                    class="sc-eDZJfc"
+                    class="sc-eZYNyq"
                   >
                     Veelgevraagd
                   </span>
@@ -107,18 +108,18 @@ exports[`<NotFound /> should render the Page Not Found text 1`] = `
               </a>
             </li>
             <li
-              class="sc-fWQKxP gSwnrI"
+              class="sc-ejfMa-d fymHSF"
             >
               <a
-                class="sc-eDvSVe dhrqvQ sc-lknQiW sc-jmpzUR sHNFC gBkRWB"
+                class="sc-dcJsrY gcSowv sc-hHOBiw sc-kWtpeL fSwEJJ jaGJBC"
                 href="/about"
                 variant="blank"
               >
                 <span
-                  class="sc-fmZqYP"
+                  class="sc-dlWCHZ"
                 >
                   <span
-                    class="sc-eDZJfc"
+                    class="sc-eZYNyq"
                   >
                     Over dit register
                   </span>
@@ -128,29 +129,29 @@ exports[`<NotFound /> should render the Page Not Found text 1`] = `
           </ul>
         </nav>
         <div
-          class="sc-bhNKFk dIVnYE"
+          class="sc-eyvILC cWNZCU"
         />
       </header>
     </div>
   </div>
   <div
-    class="sc-GKYbw blXzrA"
+    class="sc-jGKxIK iNrara"
   >
     <div
-      class="sc-gsGlKL cRnEVk sc-ehkVkK kVLOUN"
+      class="sc-guJBdh hHBeuE sc-cMa-dbN hvdifV"
     >
       <div
-        class="sc-jRwbcX eeAavz"
+        class="sc-hwdzOV dQyAaL"
       >
         <div
-          class="sc-jTjUTQ efSluk"
+          class="sc-krNlru ISieu"
         />
       </div>
       <div
-        class="sc-jRwbcX gQOMaS"
+        class="sc-hwdzOV dWTbHq"
       >
         <div
-          class="sc-jTjUTQ efSluk"
+          class="sc-krNlru ISieu"
         >
           <article>
             <h1>
@@ -160,10 +161,10 @@ exports[`<NotFound /> should render the Page Not Found text 1`] = `
         </div>
       </div>
       <div
-        class="sc-jRwbcX gQOMaS"
+        class="sc-hwdzOV dWTbHq"
       >
         <div
-          class="sc-jTjUTQ efSluk"
+          class="sc-krNlru ISieu"
         />
       </div>
     </div>
