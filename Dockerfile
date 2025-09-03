@@ -31,17 +31,30 @@ RUN npm --production=false \
 COPY src /app/src
 
 # Upgrade dependencies
-FROM base AS upgrade
-USER root
+FROM node:19-bullseye as upgrade
+
 RUN npm install -g npm-check-updates
-CMD ["ncu", "-u", "--doctor", "--target minor"]
+
+WORKDIR /app
+
+COPY package.json \
+  package-lock.json \
+  .gitignore \
+  .gitattributes \
+  tsconfig.json \
+  ./
+
+RUN chown -R node:node /app
+USER node
+
+COPY src /app/src
 
 # Test
-FROM base as test
+FROM base AS test
 RUN npm run test
 
 # Build
-FROM base as build
+FROM base AS build
 COPY public /app/public
 # COPY src /app/src
 RUN npm run build
