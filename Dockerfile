@@ -31,7 +31,7 @@ RUN npm --production=false \
 COPY src /app/src
 
 # Upgrade dependencies
-FROM node:19-bullseye as upgrade
+FROM node:19-bullseye AS upgrade
 
 RUN npm install -g npm-check-updates
 
