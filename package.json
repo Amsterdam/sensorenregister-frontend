@@ -14,7 +14,7 @@
   "license": "MPL-2.0",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --ignore-tests",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
     "test:coverage": "test --coverage",
@@ -27,7 +27,7 @@
     "@amsterdam/asc-assets": "^0.38.0",
     "@amsterdam/asc-ui": "^0.38.0",
     "@amsterdam/react-maps": "^1.1.1",
-    "axios": "^0.30.1",
+    "axios": "^1.12.0",
     "fuse.js": "^6.6.2",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
@@ -50,6 +50,7 @@
     "@types/leaflet": "^1.9.20",
     "@types/leaflet.markercluster": "^1.5.6",
     "@types/lodash": "^4.17.20",
+    "@types/moxios": "^0.4.17",
     "@types/proj4": "^2.19.0",
     "@types/react": "^17.0.88",
     "@types/react-dom": "^17.0.26",
@@ -62,7 +63,8 @@
     "eslint-plugin-promise": "^6.6.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "nock": "^13.5.6",
+    "jest-transform-stub": "^2.0.0",
+    "moxios": "^0.4.0",
     "prettier": "^2.8.8",
     "prettier-eslint": "^15.0.1",
     "sass": "^1.92.0"
@@ -84,5 +86,16 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|ts|tsx|css|less|scss|png|jpe?g|gif|webp|svg)$": "jest-transform-stub"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(axios|@amsterdam/arm-core)/)"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    }
   }
 }

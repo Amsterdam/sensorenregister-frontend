@@ -49,18 +49,14 @@ USER node
 
 COPY src /app/src
 
-# Test
-FROM base AS test
-RUN npm run test
-
 # Build
 FROM base AS build
 COPY public /app/public
-# COPY src /app/src
+
 RUN npm run build
 
 # Deploy
-FROM nginx:stable-alpine
+FROM nginx:stable-alpine AS app
 COPY --from=build /app/build/. /usr/share/nginx/html/
 
 COPY default.conf /etc/nginx/conf.d/

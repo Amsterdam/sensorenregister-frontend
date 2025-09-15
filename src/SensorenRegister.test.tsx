@@ -1,5 +1,5 @@
 import { MemoryRouter } from 'react-router-dom';
-import nock from 'nock';
+import moxios from 'moxios';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from '@amsterdam/asc-ui';
@@ -41,32 +41,38 @@ const TestRegister = () => {
 
 describe('SensorenRegister', () => {
   beforeEach(() => {
-    nock('https://maps.amsterdam.nl')
-      .get('/open_geodata/geojson_lnglat.php?KAARTLAAG=VIS&THEMA=vis')
-      .times(3)
-      .reply(200, emptyResponse)
-      .get('/open_geodata/geojson_lnglat.php?KAARTLAAG=PRIVACY_BRUGSLUIS&THEMA=privacy')
-      .reply(200, emptyResponse)
-      .get('/open_geodata/geojson_lnglat.php?KAARTLAAG=CROWDSENSOREN&THEMA=cmsa')
-      .times(2)
-      .reply(200, emptyResponse)
-      .get('/open_geodata/geojson_lnglat.php?KAARTLAAG=PRIVACY_AISMASTEN&THEMA=privacy')
-      .reply(200, emptyResponse)
-      .get('/open_geodata/geojson_lnglat.php?KAARTLAAG=PRIVACY_OVERIG&THEMA=privacy')
-      .reply(200, emptyResponse)
-      .get('/open_geodata/geojson_lnglat.php?KAARTLAAG=VIS_BFA&THEMA=vis')
-      .reply(200, emptyResponse);
+    moxios.install();
 
-    // https://acc.api.data.amsterdam.nl/iothings/devices/?page=1&page_size=1000
-    nock('https://api')
-      .get('/devices/?page=1&page_size=1000')
-      .reply(200, {
+    // Mock map data endpoints
+    const mapUrls = [
+      '/open_geodata/geojson_lnglat.php?KAARTLAAG=VIS&THEMA=vis',
+      '/open_geodata/geojson_lnglat.php?KAARTLAAG=PRIVACY_BRUGSLUIS&THEMA=privacy',
+      '/open_geodata/geojson_lnglat.php?KAARTLAAG=CROWDSENSOREN&THEMA=cmsa',
+      '/open_geodata/geojson_lnglat.php?KAARTLAAG=PRIVACY_AISMASTEN&THEMA=privacy',
+      '/open_geodata/geojson_lnglat.php?KAARTLAAG=PRIVACY_OVERIG&THEMA=privacy',
+      '/open_geodata/geojson_lnglat.php?KAARTLAAG=VIS_BFA&THEMA=vis',
+    ];
+
+    mapUrls.forEach((url) => {
+      moxios.stubRequest(`https://maps.amsterdam.nl${url}`, {
+        status: 200,
+        response: emptyResponse,
+      });
+    });
+
+    // Mock devices API call
+    moxios.stubRequest('https://api/devices/?page=1&page_size=1000', {
+      status: 200,
+      response: {
         count: mockData.length,
         results: mockData,
-        _links: {
-          next: { href: null },
-        },
-      });
+        _links: { next: { href: null } },
+      },
+    });
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
   });
 
   describe('Basics', () => {

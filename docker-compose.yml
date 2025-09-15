@@ -2,6 +2,7 @@ services:
   app: # NGINX
     build:
       context: .
+      target: app
     environment:
       - TZ=Europe/Amsterdam
     image: ${REGISTRY:-localhost:5000}/${REPOSITORY:-opdrachten/sensorenregister-frontend}:${VERSION:-latest}
@@ -25,7 +26,7 @@ services:
   test-unit:
     build:
       context: .
-      target: test
+      target: base
     volumes:
       - ./src:/app/src
       - ./public:/app/public
