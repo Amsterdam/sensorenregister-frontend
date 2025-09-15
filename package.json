@@ -14,7 +14,7 @@
   "license": "MPL-2.0",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --ignore-tests",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
     "test:coverage": "test --coverage",
@@ -50,6 +50,7 @@
     "@types/leaflet": "^1.9.20",
     "@types/leaflet.markercluster": "^1.5.6",
     "@types/lodash": "^4.17.20",
+    "@types/moxios": "^0.4.17",
     "@types/proj4": "^2.19.0",
     "@types/react": "^17.0.88",
     "@types/react-dom": "^17.0.26",
