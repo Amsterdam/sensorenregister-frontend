@@ -4,9 +4,6 @@
  * This is the entry file for the application, only setup and boilerplate
  * code.
  */
-
-import 'regenerator-runtime/runtime';
-
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, GlobalStyle, ascDefaultTheme } from '@amsterdam/asc-ui';

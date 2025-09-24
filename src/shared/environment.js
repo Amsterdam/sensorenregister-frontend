@@ -1,5 +1,5 @@
 // const domainName = 'sensorenregister.amsterdam.nl';
-const apiDomainName = 'api.data.amsterdam.nl';
+// const apiDomainName = 'api.data.amsterdam.nl';
 
 // const defaultConfig = {
 //   API_ROOT: `https://acc.${apiDomainName}/`,
@@ -24,7 +24,7 @@ const environmentConfig = () => {
     if (port) {
       // docker compose
       environment = {
-        API_ROOT: `http://localhost:8000/`,
+        API_ROOT: `http://localhost:8000/api/`,
         MAP_ROOT: 'https://map.data.amsterdam.nl/',
         ROOT: `https://${hostname}/`
       };

@@ -1,4 +1,4 @@
-FROM node:19-bullseye AS base
+FROM node:24.8.0-bookworm AS base
 
 ARG BUILD_ENV=prod
 ARG BUILD_NUMBER=0
@@ -10,13 +10,10 @@ COPY package.json \
   .gitignore \
   .gitattributes \
   tsconfig.json \
+  vite.config.* \
   ./
 
 RUN ln -s src/.env .env
-
-#  Changing git URL because network is blocking git protocol...
-# RUN git config --global url."https://".insteadOf git://
-# RUN git config --global url."https://github.com/".insteadOf git@github.com:
 
 RUN chown -R node:node /app
 USER node
@@ -29,9 +26,11 @@ RUN npm --production=false \
   && npm cache clean --force
 
 COPY src /app/src
+COPY public /app/public
+COPY index.html ./
 
 # Upgrade dependencies
-FROM node:19-bullseye AS upgrade
+FROM node:24.8.0-bookworm AS upgrade
 
 RUN npm install -g npm-check-updates
 
@@ -42,6 +41,7 @@ COPY package.json \
   .gitignore \
   .gitattributes \
   tsconfig.json \
+  vite.config.* \
   ./
 
 RUN chown -R node:node /app

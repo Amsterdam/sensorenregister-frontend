@@ -30,8 +30,12 @@ services:
     volumes:
       - ./src:/app/src
       - ./public:/app/public
+      - ./package.json:/app/package.json
+      - ./vite.config.json:/app/vite.config.json
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./vitest.setup.ts:/app/vitest.setup.ts
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=test
       - TZ=Europe/Amsterdam
     command: npm run test
 

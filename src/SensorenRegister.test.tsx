@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { MemoryRouter } from 'react-router-dom';
 import moxios from 'moxios';
 import { render, screen } from '@testing-library/react';
@@ -5,18 +6,19 @@ import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from '@amsterdam/asc-ui';
 import SensorenRegister from './containers/App/index';
 import sensors from './classes/__mockData__/sensors.json';
+import { vi } from 'vitest';
 
-jest.mock('./containers/MapContainer/PointClusterLayer', () => ({
+vi.mock('./containers/MapContainer/PointClusterLayer', () => ({
   __esModule: true,
   default: () => <></>,
 }));
 
-jest.mock('./containers/MapContainer/CenterMap', () => ({
+vi.mock('./containers/MapContainer/CenterMap', () => ({
   __esModule: true,
   default: () => <></>,
 }));
 
-jest.mock('./containers/HeaderContainer/index', () => {
+vi.mock('./containers/HeaderContainer/index', () => {
   return {
     __esModule: true,
     default: () => <></>,
@@ -41,7 +43,7 @@ const TestRegister = () => {
 
 describe('SensorenRegister', () => {
   beforeEach(() => {
-    moxios.install();
+    moxios.install(axios);
 
     // Mock map data endpoints
     const mapUrls = [
@@ -72,7 +74,7 @@ describe('SensorenRegister', () => {
   });
 
   afterEach(() => {
-    moxios.uninstall();
+    moxios.uninstall(axios);
   });
 
   describe('Basics', () => {
@@ -80,6 +82,7 @@ describe('SensorenRegister', () => {
       render(<TestRegister />);
 
       await screen.findByText('Sensortype');
+
       expect(screen.getByText('Eigenaar')).toBeInTheDocument();
 
       expect(screen.getByText('Gemeente Amsterdam (1)')).toBeInTheDocument();
