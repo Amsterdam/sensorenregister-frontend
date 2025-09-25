@@ -3,10 +3,12 @@ import { ThemeProvider } from '@amsterdam/asc-ui';
 
 import DeviceDetails, { Props } from '.';
 import { SensorTypes } from '../../utils/types';
+import { vi } from 'vitest';
 
-jest.mock('../../services/regions', () => {
+
+vi.mock('../../services/regions', () => {
   return {
-    useRegions: jest.fn(),
+    useRegions: vi.fn(),
     __esModule: true,
   };
 });

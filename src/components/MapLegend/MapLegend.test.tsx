@@ -5,6 +5,7 @@ import MapLegend from '.';
 import { Sensor } from '../../classes/Sensor';
 import { SensorFilter } from '../../classes/SensorFilter';
 import sensors from '../../classes/__mockData__/sensors.json';
+import { vi } from 'vitest';
 
 describe('MapLegend', () => {
   let sensorList: Sensor[] = [];
@@ -40,7 +41,7 @@ describe('MapLegend', () => {
 
     render(
       <ThemeProvider>
-        <MapLegend legend={legend} onToggleCategory={jest.fn()} filter={filter} selectedItems={[]} />
+        <MapLegend legend={legend} onToggleCategory={vi.fn()} filter={filter} selectedItems={[]} />
       </ThemeProvider>,
     );
 
@@ -95,7 +96,7 @@ describe('MapLegend', () => {
 
     render(
       <ThemeProvider>
-        <MapLegend legend={legend} onToggleCategory={jest.fn()} filter={filter} selectedItems={[]} />
+        <MapLegend legend={legend} onToggleCategory={vi.fn()} filter={filter} selectedItems={[]} />
       </ThemeProvider>,
     );
 

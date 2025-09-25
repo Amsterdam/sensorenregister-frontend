@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { vi } from 'vitest';
 
 import { HeaderContainer } from './index';
 
@@ -10,13 +11,13 @@ describe('<HeaderContainer />', () => {
   beforeEach(() => {
     props = {
       userName: 'user',
-      onLogin: jest.fn(),
-      onLogout: jest.fn(),
+      onLogin: vi.fn(),
+      onLogout: vi.fn(),
     };
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   it('should render correctly when authenticated', () => {

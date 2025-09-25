@@ -1,4 +1,5 @@
 import layersReader from './layersReader';
+import { vi } from 'vitest';
 
 describe('getGeojsonLayers', () => {
   const featchServiceMock = async () => geojsonMock.features;
@@ -36,7 +37,7 @@ describe('getGeojsonLayers', () => {
   };
 
   afterEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   it('should call all services from the configuration once', async () => {
