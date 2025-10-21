@@ -70,7 +70,7 @@
     "prettier": "^2.8.8",
     "prettier-eslint": "^15.0.1",
     "sass": "^1.93.1",
-    "vite": "^7.1.7",
+    "vite": "^7.1.11",
     "vitest": "^3.2.4"
   },
   "browserslist": {
