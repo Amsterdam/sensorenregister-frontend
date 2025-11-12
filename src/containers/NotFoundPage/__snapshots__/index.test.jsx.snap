@@ -126,6 +126,26 @@ exports[`<NotFound /> > should render the Page Not Found text 1`] = `
                 </span>
               </a>
             </li>
+            <li
+              class="sc-ejfMa-d fymHSF"
+            >
+              <a
+                class="sc-dcJsrY gcSowv sc-hHOBiw sc-kWtpeL fSwEJJ jaGJBC"
+                href="https://www.amsterdam.nl/privacy/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span
+                  class="sc-dlWCHZ"
+                >
+                  <span
+                    class="sc-eZYNyq"
+                  >
+                    Privacyverklaring
+                  </span>
+                </span>
+              </a>
+            </li>
           </ul>
         </nav>
         <div
