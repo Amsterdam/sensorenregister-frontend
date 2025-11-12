@@ -126,6 +126,26 @@ exports[`<HeaderContainer /> > should render correctly when authenticated 1`] = 
                 </span>
               </a>
             </li>
+            <li
+              class="sc-ejfMa-d fymHSF"
+            >
+              <a
+                class="sc-dcJsrY cacPAW sc-hHOBiw sc-kWtpeL QfOln hYunlC"
+                href="https://www.amsterdam.nl/privacy/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span
+                  class="sc-dlWCHZ"
+                >
+                  <span
+                    class="sc-eZYNyq"
+                  >
+                    Privacyverklaring
+                  </span>
+                </span>
+              </a>
+            </li>
           </ul>
         </nav>
         <div

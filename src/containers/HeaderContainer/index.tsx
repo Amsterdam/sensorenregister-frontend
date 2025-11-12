@@ -55,6 +55,11 @@ export const HeaderContainer = () => (
               Over dit register
             </MenuButton>
           </MenuItem>
+          <MenuItem>
+            <MenuButton as="a" href="https://www.amsterdam.nl/privacy/" target="_blank" rel="noopener noreferrer">
+              Privacyverklaring
+            </MenuButton>
+          </MenuItem>
         </Menu>
       }
     ></Header>
