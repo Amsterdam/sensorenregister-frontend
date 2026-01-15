@@ -1,4 +1,4 @@
-FROM node:24.8.0-bookworm AS base
+FROM node:24.13.0-bookworm AS base
 
 ARG BUILD_ENV=prod
 ARG BUILD_NUMBER=0
@@ -30,7 +30,7 @@ COPY public /app/public
 COPY index.html ./
 
 # Upgrade dependencies
-FROM node:24.8.0-bookworm AS upgrade
+FROM node:24.13.0-bookworm AS upgrade
 
 RUN npm install -g npm-check-updates
 
