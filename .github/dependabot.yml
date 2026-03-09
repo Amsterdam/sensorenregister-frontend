@@ -7,6 +7,16 @@ updates:
       time: "07:30"
       timezone: "Europe/Amsterdam"
 
+    ignore:
+      - dependency-name: "styled-components"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-router-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@testing-library/react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+
     groups:
       maintenance:
         applies-to: "version-updates"
