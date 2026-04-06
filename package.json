@@ -68,7 +68,7 @@
     "prettier": "^3.8.1",
     "prettier-eslint": "^16.4.2",
     "sass": "^1.93.1",
-    "vite": "^7.1.11",
+    "vite": "^7.3.2",
     "vitest": "^4.0.18"
   },
   "browserslist": {
