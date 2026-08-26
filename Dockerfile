@@ -1,4 +1,6 @@
-FROM node:24.13.0-bookworm AS base
+FROM node:24.19.0-alpine AS base
+
+RUN npm install -g npm@12.0.2
 
 ARG BUILD_ENV=prod
 ARG BUILD_NUMBER=0
@@ -20,9 +22,8 @@ USER node
 
 # Install NPM dependencies. Also:
 RUN npm --production=false \
-  --unsafe-perm \
   --verbose \
-  install \
+  ci \
   && npm cache clean --force
 
 COPY src /app/src
