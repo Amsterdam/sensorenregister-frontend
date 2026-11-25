@@ -31,8 +31,9 @@ COPY public /app/public
 COPY index.html ./
 
 # Upgrade dependencies
-FROM node:24.13.0-bookworm AS upgrade
+FROM node:24.20.0-alpine AS upgrade
 
+RUN npm install -g npm@12.0.2
 RUN npm install -g npm-check-updates
 
 WORKDIR /app
